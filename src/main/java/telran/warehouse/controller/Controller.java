@@ -1,5 +1,7 @@
 package telran.warehouse.controller;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -41,5 +43,11 @@ public class Controller {
 	@DeleteMapping("/deleteItem/{itemNumber}")
 	public boolean deleteItem(@PathVariable Integer itemNumber) {
 		return warehouseService.deleteItem(itemNumber);
+	}
+	
+	@GetMapping("/getAll")
+	public List<ItemDto> getAllItems() {
+		return warehouseService.getAllItems();
+		
 	}
 }

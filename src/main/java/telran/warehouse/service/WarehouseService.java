@@ -1,5 +1,7 @@
 package telran.warehouse.service;
 
+import java.util.List;
+
 import telran.warehouse.dto.ItemDto;
 
 public interface WarehouseService {
@@ -13,5 +15,7 @@ public interface WarehouseService {
 	public boolean addItem(ItemDto itemDto);
 	
 	public boolean deleteItem(int itemNumber);
+
+	public List<ItemDto> getAllItems();
 	
 }

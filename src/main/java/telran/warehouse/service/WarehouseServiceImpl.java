@@ -1,5 +1,8 @@
 package telran.warehouse.service;
 
+import java.util.List;
+import java.util.stream.Collectors;
+
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -58,5 +61,12 @@ public class WarehouseServiceImpl implements WarehouseService {
 		}
 		warehouseRepository.deleteById(itemNumber);
 		return true;
+	}
+
+	@Override
+	public List<ItemDto> getAllItems() {
+		return warehouseRepository.findAll().stream()
+				.map(i -> modelMapper.map(i, ItemDto.class))
+				.collect(Collectors.toList());
 	}
 }
